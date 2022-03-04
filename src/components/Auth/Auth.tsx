@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import Login from './Login';
 import Signup from './Signup';
 interface AuthProps {
-    
+    setToken:React.Dispatch<React.SetStateAction<string | null>>
 }
  
 interface AuthState {
@@ -19,19 +19,13 @@ class Auth extends React.Component<AuthProps, AuthState> {
             <Container>
                 <Row>
                     <Col md="6">
-                        <Signup />
-                        {/* work on the component individually.  Reference what i had prior.  */}
+                        <Signup setToken={this.props.setToken}/>
                     </Col>
                     <Col md="6">
-                        <Login/>
+                        <Login setToken={this.props.setToken}/>
                     </Col>
                 </Row>
             </Container>
-            // <div>
-            //     <p>Hello from Auth</p>
-            //     <Login/>
-            //     <Signup/>
-            // </div>
          );
     }
 }

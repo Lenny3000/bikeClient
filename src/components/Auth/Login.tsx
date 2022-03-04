@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { ILoginRequestObject, ILoginSuccessResponse } from './Login.interface';
 
 interface LoginProps {
-    
+    setToken:React.Dispatch<React.SetStateAction<string | null>>
 }
  
 interface LoginState {
@@ -15,10 +16,30 @@ class Login extends React.Component<LoginProps, LoginState> {
         super(props);
         this.state = { email:"", password:"" };
     }
+
+    handleSubmit=async(e:React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        const url=`http://localhost:4000/user/login`
+        const requestObject:ILoginRequestObject={
+            email:this.state.email,
+            password:this.state.password,
+        }
+        const response=await fetch(url,{
+            method:"POST",
+            body:JSON.stringify(requestObject),
+            headers: new Headers({
+                'Content-Type': 'application/json'
+            })
+        })
+        const data:ILoginSuccessResponse=await response.json()
+        console.log(data);
+        this.props.setToken(data.sessionToken)
+        localStorage.setItem("token", data.sessionToken)
+    }
     render() { 
         return ( 
             <div>
-                <Form>
+                <Form onSubmit={this.handleSubmit}>
                     <FormGroup>
                         <Label htmlFor="email">email</Label>
                         <Input
