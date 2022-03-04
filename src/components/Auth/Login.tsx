@@ -37,7 +37,7 @@ class Login extends React.Component<LoginProps, LoginState> {
                             value={this.state.password}
                             />
                         </FormGroup>
-                        <Button type="submit">Sign Up</Button>
+                        <Button type="submit">Login</Button>
                         </Form>
             </div>
          );
