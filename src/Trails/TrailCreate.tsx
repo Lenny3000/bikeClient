@@ -76,6 +76,8 @@ class TrailCreate extends React.Component<TrailCreateProps, TrailCreateState> {
                     <Input
                     type="text"
                     name="description"
+                    onChange={(e) => this.setState({ description: e.target.value})}
+                    value={this.state.description}
                     />
                 </FormGroup>
                 <FormGroup>
@@ -84,6 +86,8 @@ class TrailCreate extends React.Component<TrailCreateProps, TrailCreateState> {
                     <Input
                     type="url"
                     name="imageURL"
+                    onChange={(e) => this.setState({ imageURL: e.target.value})}
+                    value={this.state.imageURL}
                     />
                 </FormGroup>
                 <Button type="submit">Create a Trail</Button>

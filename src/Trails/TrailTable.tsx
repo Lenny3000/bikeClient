@@ -15,7 +15,7 @@ function TrailTable(props:TrailTableProps) {
                     <td>{trail.trailName}</td>
                     <td>{trail.length}</td>
                     <td>{trail.description}</td>
-                    <td>{trail.imageURL}</td>
+                    <td><img src={trail.imageURL} /></td>
                     <td>
                         <Button color='warning' >Update</Button>
                         <Button color='danger' >Delete</Button>
@@ -31,8 +31,9 @@ function TrailTable(props:TrailTableProps) {
         <Table striped>
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Trail Name</th>
-                    <th>Length</th>
+                    <th>Length (mi.)</th>
                     <th>Description</th>
                     <th>Image</th>
                 </tr>

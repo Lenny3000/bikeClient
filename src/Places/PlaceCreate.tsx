@@ -48,6 +48,8 @@ class PlaceCreate extends React.Component<PlaceCreateProps, PlaceCreateState> {
         })
         const data=await response.json()
         console.log(data)
+        // This point we should refresh the table by calling this.props.fetchplaces
+        // We need to clear all the state to empty strings
     }
     render() { 
         return ( 
