@@ -25,7 +25,8 @@ function App() {
     setToken("")
     localStorage.clear()
   }
-  const protectedViews= ()=> token ? <PlaceIndex />: <Auth setToken={setToken}/>
+  const protectedViews= ()=> token ? 
+  <><PlaceIndex token={token}/> <TrailIndex token={token}/></>: <Auth setToken={setToken}/>
   return (
     <div>
       <Sitebar clearToken={clearToken}/>
