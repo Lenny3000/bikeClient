@@ -11,14 +11,14 @@ interface TrailCreateState {
     trailName:string
     length:number
     description:string
-    imageURL:URL
+    imageURL:string
 }
  
 class TrailCreate extends React.Component<TrailCreateProps, TrailCreateState> {
     constructor(props: TrailCreateProps) {
         super(props);
         this.state = { trailName:"",
-                        length:"",
+                        length:0,
                         description:"",
                         imageURL:"",};
     }
@@ -39,7 +39,7 @@ class TrailCreate extends React.Component<TrailCreateProps, TrailCreateState> {
         }
         const response=await fetch(url,{
             method:"POST",
-            body:JSON.stringify(this.requestObject),
+            body:JSON.stringify(requestObject),
             headers: new Headers({
                 'Content-Type': 'application/json',
                 'Authorization': this.props.token
@@ -50,7 +50,7 @@ class TrailCreate extends React.Component<TrailCreateProps, TrailCreateState> {
 }
     render() { 
         return ( <div>
-            <Form>
+            <Form onSubmit={this.handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="trailName">trailName</Label>
                     <Input
@@ -66,7 +66,7 @@ class TrailCreate extends React.Component<TrailCreateProps, TrailCreateState> {
                     <Input
                     type="number"
                     name="length"
-                    onChange={(e) => this.setState({ length: e.target.value})}
+                    onChange={(e) => this.setState({ length: +e.target.value})}
                     value={this.state.length}
                     />
                 </FormGroup>
