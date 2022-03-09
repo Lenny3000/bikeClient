@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Input, Form, FormGroup, Label, Button } from 'reactstrap';
-import { json } from 'stream/consumers';
 import { ICreateRequestObject } from './TrailCreate.interface';
 
 interface TrailCreateProps {
     token:string|null
+    fetchTrails: () => void
 }
  
 interface TrailCreateState {
@@ -47,6 +47,13 @@ class TrailCreate extends React.Component<TrailCreateProps, TrailCreateState> {
         })
     const data=await response.json()
     console.log(data)
+    this.props.fetchTrails()
+    this.setState({
+        trailName: '',
+        length: 0,
+        description: '',
+        imageURL: ''
+    })
 }
     render() { 
         return ( <div>

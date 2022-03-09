@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Input, Form, FormGroup, Label, Button } from 'reactstrap';
-import { json } from 'stream/consumers';
 import { ICreateRequestObject } from './PlaceCreate.interface';
 
 interface PlaceCreateProps {
     token:string|null
+    fetchPlaces: () => void
 }
  
 interface PlaceCreateState {
@@ -48,6 +48,14 @@ class PlaceCreate extends React.Component<PlaceCreateProps, PlaceCreateState> {
         })
         const data=await response.json()
         console.log(data)
+        this.props.fetchPlaces()
+        this.setState({
+            placeName: '',
+            address: '',
+            latitude: '',
+            longitude: ''
+        })
+
         // This point we should refresh the table by calling this.props.fetchplaces
         // We need to clear all the state to empty strings
     }

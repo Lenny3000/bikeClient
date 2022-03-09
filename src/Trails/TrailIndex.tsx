@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Col, Container, Row } from "reactstrap";
 import TrailCreate from "./TrailCreate";
+import TrailEdit from "./TrailEdit";
 import { ITrailGetAll } from "./TrailIndex.interface";
 import TrailTable from "./TrailTable";
 
@@ -43,11 +44,12 @@ class TrailIndex extends React.Component<TrailIndexProps, TrailIndexState> {
       <Container>
         <Row>
           <Col md="3">
-            <TrailCreate token={this.props.token} />
+            <TrailCreate fetchTrails={this.fetchTrails} token={this.props.token} />
           </Col>
           <Col md="9">
-            <TrailTable token={this.props.token} trails={this.state.trails}/>
+            <TrailTable fetchTrails={this.fetchTrails}token={this.props.token} trails={this.state.trails}/>
           </Col>
+          <TrailEdit />
         </Row>
       </Container>
     );

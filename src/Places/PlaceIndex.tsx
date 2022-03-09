@@ -45,12 +45,12 @@ class PlaceIndex extends React.Component<PlaceIndexProps, PlaceIndexState> {
             <Container>
                 <Row>
                     <Col md="3">
-                        <PlaceCreate token={this.props.token}/>
+                        <PlaceCreate fetchPlaces={this.fetchPlaces} token={this.props.token}/>
                     </Col>
                     <Col md="9">
-                        <PlaceTable token={this.props.token} places={this.state.places}/>
+                        <PlaceTable fetchPlaces={this.fetchPlaces} token={this.props.token} places={this.state.places}/>
                     </Col>
-                    <PlaceEdit />
+                    {/* <PlaceEdit fetchPlaces={this.fetchPlaces} token={this.props.token}/> */}
 
                 </Row>
             </Container>

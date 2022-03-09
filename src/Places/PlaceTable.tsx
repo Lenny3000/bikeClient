@@ -1,12 +1,45 @@
 import React from 'react';
 import { Button, Table } from 'reactstrap';
+import { IEditRequestObject } from './PlaceEdit.interface';
 import { IPlaceGetAll } from './PlaceIndex.interface';
 export interface PlaceTableProps {
     token:string|null
     places:IPlaceGetAll[]
+    fetchPlaces: () => void
 }
 
 function PlaceTable(props:PlaceTableProps) {
+    const deletePlace = (place:IPlaceGetAll) => {
+        if (props.token === null) {
+            alert("No token detected");
+            return;
+          }
+        console.log("delete button was clicked")
+        fetch(`http://localhost:4000/place/${place.id}`, {
+            method: 'DELETE',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': props.token
+            })
+        })
+        .then(() => props.fetchPlaces())
+    }
+    const editPlace = (place:IEditRequestObject) => {
+        if (props.token === null) {
+            alert("No token detected");
+            return;
+          }
+        console.log("edit button was clicked")
+        fetch(`http://localhost:4000/place/${place.id}`, {
+            method: 'PUT',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': props.token
+            })
+        })
+        .then(() => props.fetchPlaces())
+    }
+    
     const placeMapper = () => {
         return props.places?.map((place, index)=> {
             return(
@@ -17,8 +50,8 @@ function PlaceTable(props:PlaceTableProps) {
                 <td>{place.latitude}</td>
                 <td>{place.longitude}</td>
                 <td>
-                    <Button color='warning' >Update</Button>
-                    <Button color='danger' >Delete</Button>
+                    <Button color='warning' onClick={() => {editPlace(place)}}>Edit</Button>
+                    <Button color='danger' onClick={() => {deletePlace(place)}}  >Delete</Button>
                 </td>
             </tr>
             )

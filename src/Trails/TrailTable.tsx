@@ -4,9 +4,26 @@ import { ITrailGetAll } from './TrailIndex.interface';
 export interface TrailTableProps {
     token:string|null
     trails:ITrailGetAll[]
+    fetchTrails: () => void
 }
 
 function TrailTable(props:TrailTableProps) {
+    const deleteTrail = (trail:ITrailGetAll) =>
+    {
+        if (props.token === null) {
+            alert("No token detected");
+            return;
+        }
+        console.log("delete button was clicked")
+        fetch(`http://localhost:4000/trail/${trail.id}`, {
+            method: 'DELETE',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': props.token
+            })
+        })
+        .then(() => props.fetchTrails())
+    }
     const trailMapper = () => {
         return props.trails?.map((trail, index) => {
             return(
@@ -18,7 +35,7 @@ function TrailTable(props:TrailTableProps) {
                     <td><img src={trail.imageURL} /></td>
                     <td>
                         <Button color='warning' >Update</Button>
-                        <Button color='danger' >Delete</Button>
+                        <Button color='danger' onClick={() => {deleteTrail(trail)}}>Delete</Button>
                     </td>
                 </tr>
             )
