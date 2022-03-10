@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Col, Container, Row } from 'reactstrap';
 import PlaceCreate from './PlaceCreate';
-import PlaceEdit from './PlaceEdit';
 import PlaceTable from './PlaceTable';
 import { IPlaceGetAll } from "./PlaceIndex.interface";
 
