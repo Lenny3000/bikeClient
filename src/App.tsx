@@ -13,6 +13,8 @@ import TrailEdit from './Trails/TrailEdit';
 import TrailIndex from './Trails/TrailIndex';
 import TrailTable from './Trails/TrailTable';
 import Sitebar from './home/navbar';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import HeaderJumboTron from './home/HeaderJumbotron';
 
 function App() {
   const [token, setToken] = useState<null|string>("");
@@ -26,11 +28,17 @@ function App() {
     localStorage.clear()
   }
   const protectedViews= ()=> token ? 
-  <><PlaceIndex token={token}/> <TrailIndex token={token}/></>: <Auth setToken={setToken}/>
+  <Navigate to="/trails" replace/>: <Auth setToken={setToken}/>
   return (
     <div>
+      <HeaderJumboTron/>
       <Sitebar clearToken={clearToken}/>
-      {protectedViews()}
+      <Routes>
+      <Route path='/' element={protectedViews()}/>
+
+        <Route path='/trails' element={token?<TrailIndex token={token}/>: <h1>Loading...</h1>}/>
+        <Route path='/places' element={token?<PlaceIndex token={token}/>: <h1>Loading...</h1>}/>
+        </Routes>
     </div>
   );
 }

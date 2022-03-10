@@ -20,10 +20,10 @@ const Sitebar = (props:SitebarProps) => {
   };
     return (
         <Navbar color="faded" light expand="md">
-            <NavbarBrand href="/">Bike</NavbarBrand>
+            <NavbarBrand href="/"></NavbarBrand>
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
-                <Nav className="ml-auto" navbar>
+                <Nav className="ms-auto" navbar>
                     <NavItem>
                         <Button onClick={props.clearToken}>Logout</Button>
                     </NavItem>

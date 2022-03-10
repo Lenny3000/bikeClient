@@ -59,7 +59,7 @@ class TrailCreate extends React.Component<TrailCreateProps, TrailCreateState> {
         return ( <div>
             <Form onSubmit={this.handleSubmit}>
                 <FormGroup>
-                    <Label htmlFor="trailName">trailName</Label>
+                    <Label htmlFor="trailName">Trail Name</Label>
                     <Input
                     type="text"
                     name="trailName"
@@ -69,7 +69,7 @@ class TrailCreate extends React.Component<TrailCreateProps, TrailCreateState> {
                 </FormGroup>
                 <FormGroup>
                     <Label
-                    htmlFor="length">length</Label>
+                    htmlFor="length">Length</Label>
                     <Input
                     type="number"
                     name="length"
@@ -79,7 +79,7 @@ class TrailCreate extends React.Component<TrailCreateProps, TrailCreateState> {
                 </FormGroup>
                 <FormGroup>
                     <Label
-                    htmlFor="description">description</Label>
+                    htmlFor="description">Description</Label>
                     <Input
                     type="text"
                     name="description"
@@ -89,7 +89,7 @@ class TrailCreate extends React.Component<TrailCreateProps, TrailCreateState> {
                 </FormGroup>
                 <FormGroup>
                     <Label
-                    htmlFor="imageURL">imageURL</Label>
+                    htmlFor="imageURL">Image URL</Label>
                     <Input
                     type="url"
                     name="imageURL"

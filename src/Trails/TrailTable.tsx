@@ -82,14 +82,14 @@ function TrailTable(props:TrailTableProps) {
         return props.trails?.map((trail, index) => {
             return(
                 <tr key={index}>
-                    <th scope="row">{trail.id}</th>
+                    <th scope="row">{index+1}</th>
                     <td>{trail.trailName}</td>
                     <td>{trail.length}</td>
                     <td>{trail.description}</td>
                     <td><img src={trail.imageURL} /></td>
                     <td>
-                        <Button color='warning' onClick={() => {editTrail(trail)}} >Edit</Button>
-                        <Button color='danger' onClick={() => {deleteTrail(trail)}}>Delete</Button>
+                        <Button class="editButton" onClick={() => {editTrail(trail)}} >Edit</Button>
+                        <Button class="deleteButton" onClick={() => {deleteTrail(trail)}}>Delete</Button>
                     </td>
                 </tr>
             )
@@ -102,7 +102,7 @@ function TrailTable(props:TrailTableProps) {
         <Table striped>
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>#</th>
                     <th>Trail Name</th>
                     <th>Length (mi.)</th>
                     <th>Description</th>
