@@ -45,6 +45,7 @@ class Login extends React.Component<LoginProps, LoginState> {
                         <Input
                         type="email"
                         name="email"
+                        placeholder='Enter your email address'
                         onChange={(e) => this.setState({ email: e.target.value})}
                         value={this.state.email}
                         />
@@ -54,6 +55,7 @@ class Login extends React.Component<LoginProps, LoginState> {
                             <Input
                             type="password"
                             name="password"
+                            placeholder='Enter you password'
                             onChange={(e) => this.setState({ password:e.target.value})}
                             value={this.state.password}
                             />

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {Table, Button} from 'reactstrap';
-import PlaceTable from '../Places/PlaceTable';
 import TrailEdit from './TrailEdit';
 import { IEditRequestObject } from './TrailEdit.interface';
 import { ITrailGetAll } from './TrailIndex.interface';
@@ -86,7 +85,9 @@ function TrailTable(props:TrailTableProps) {
                     <td>{trail.trailName}</td>
                     <td>{trail.length}</td>
                     <td>{trail.description}</td>
-                    <td><img src={trail.imageURL} /></td>
+                    <td><img src={trail.imageURL} 
+                    // alt="" 
+                    className='image'/></td>
                     <td>
                         <Button class="editButton" onClick={() => {editTrail(trail)}} >Edit</Button>
                         <Button class="deleteButton" onClick={() => {deleteTrail(trail)}}>Delete</Button>

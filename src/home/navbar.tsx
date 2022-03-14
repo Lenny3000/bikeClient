@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -24,6 +25,18 @@ const Sitebar = (props:SitebarProps) => {
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="ms-auto" navbar>
+                <NavItem>
+                    <NavLink to="/trails">
+                        <Button style={{marginRight: "10px"}} >Trails</Button>
+
+                    </NavLink>
+                    </NavItem>
+                <NavItem>
+                    <NavLink to="/places">
+                        <Button style={{marginRight: "10px"}} >Places</Button>
+
+                    </NavLink>
+                    </NavItem>
                     <NavItem>
                         <Button onClick={props.clearToken}>Logout</Button>
                     </NavItem>

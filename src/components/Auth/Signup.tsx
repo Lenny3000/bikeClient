@@ -47,19 +47,21 @@ class Signup extends React.Component<SignupProps, SignupState> {
       <div>
         <Form onSubmit={this.handleSubmit}>
           <FormGroup>
-            <Label htmlFor="firstName">firstName</Label>
+            <Label htmlFor="firstName">First Name</Label>
             <Input
               type="text"
               name="firstName"
+              placeholder="Enter your first name"
               onChange={(e) => this.setState({ firstName: e.target.value })}
               value={this.state.firstName}
             />
           </FormGroup>
           <FormGroup>
-            <Label htmlFor="lastName">lastName</Label>
+            <Label htmlFor="lastName">Last Name</Label>
             <Input
               type="text"
               name="lastName"
+              placeholder="Enter your last name"
               onChange={(e) => this.setState({
               lastName: e.target.value })}
               value={this.state.lastName}
@@ -70,18 +72,21 @@ class Signup extends React.Component<SignupProps, SignupState> {
             <Input
               type="email"
               name="email"
+              placeholder="Enter an email address"
               onChange={(e) => this.setState({ email: e.target.value })}
               value={this.state.email}
             />
-            <span>email is required</span>
+            <span>Email is required</span>
           </FormGroup>
           <FormGroup>
             <Label htmlFor="password">Password</Label>
             <Input
               type="password"
               name="password"
+              placeholder="Enter a password"
               onChange={(e) => this.setState({ password: e.target.value })}
               value={this.state.password}
+              minLength={5}
             />
           </FormGroup>
           <Button type="submit">Sign Up</Button>

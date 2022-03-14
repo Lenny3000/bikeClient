@@ -1,17 +1,9 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-
-import logo from './logo.svg';
 import './App.css';
 import Auth from './components/Auth/Auth';
-import PlaceCreate from './Places/PlaceCreate';
-import PlaceEdit from './Places/PlaceEdit';
 import PlaceIndex from './Places/PlaceIndex';
-import PlaceTable from './Places/PlaceTable';
-import TrailCreate from './Trails/TrailCreate';
-import TrailEdit from './Trails/TrailEdit';
 import TrailIndex from './Trails/TrailIndex';
-import TrailTable from './Trails/TrailTable';
 import Sitebar from './home/navbar';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import HeaderJumboTron from './home/HeaderJumbotron';
@@ -36,8 +28,8 @@ function App() {
       <Routes>
       <Route path='/' element={protectedViews()}/>
 
-        <Route path='/trails' element={token?<TrailIndex token={token}/>: <h1>Loading...</h1>}/>
-        <Route path='/places' element={token?<PlaceIndex token={token}/>: <h1>Loading...</h1>}/>
+        <Route path='/trails' element={token?<TrailIndex token={token}/>: <Navigate to="/" replace/>}/>
+        <Route path='/places' element={token?<PlaceIndex token={token}/>: <Navigate to="/"/>}/>
         </Routes>
     </div>
   );

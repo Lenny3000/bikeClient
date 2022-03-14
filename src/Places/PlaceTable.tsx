@@ -75,8 +75,7 @@ function PlaceTable(props: PlaceTableProps) {
           <td>{place.latitude}</td>
           <td>{place.longitude}</td>
           <td>
-            <Button
-              color="warning"
+            <Button class="editButton"
               onClick={() => {
                 editPlace(place);
               }}
@@ -84,7 +83,7 @@ function PlaceTable(props: PlaceTableProps) {
               Edit
             </Button>
             <Button
-              color="danger"
+              class="deleteButton"
               onClick={() => {
                 deletePlace(place);
               }}
