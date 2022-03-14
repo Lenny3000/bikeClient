@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {Table, Button} from 'reactstrap';
+import APIURL from '../helpers/environment';
 import TrailEdit from './TrailEdit';
 import { IEditRequestObject } from './TrailEdit.interface';
 import { ITrailGetAll } from './TrailIndex.interface';
@@ -19,7 +20,7 @@ function TrailTable(props:TrailTableProps) {
             return;
         }
         console.log("delete button was clicked")
-        fetch(`http://localhost:4000/trail/${trail.id}`, {
+        fetch(`${APIURL}/trail/${trail.id}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -37,7 +38,7 @@ function TrailTable(props:TrailTableProps) {
             return;
         }
         console.log("edit button was clicked")
-        fetch(`http://localhost:4000/trail/${trail.id}`, {
+        fetch(`${APIURL}/trail/${trail.id}`, {
             method: 'PUT',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -66,7 +67,7 @@ function TrailTable(props:TrailTableProps) {
             description: trail.description,
             imageURL: trail.imageURL,
         };
-        fetch(`http://localhost:4000/trail/${trail.id}`, {
+        fetch(`${APIURL}/trail/${trail.id}`, {
             method: "PUT",
             body: JSON.stringify(requestObject),
             headers: new Headers({

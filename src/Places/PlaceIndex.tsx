@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'reactstrap';
 import PlaceCreate from './PlaceCreate';
 import PlaceTable from './PlaceTable';
 import { IPlaceGetAll } from "./PlaceIndex.interface";
+import APIURL from '../helpers/environment';
 
 interface PlaceIndexProps {
     token:string|null
@@ -22,7 +23,7 @@ class PlaceIndex extends React.Component<PlaceIndexProps, PlaceIndexState> {
           alert("No token detected");
           return;
         }
-        fetch("http://localhost:4000/place/get", {
+        fetch(`${APIURL}/place/get`, {
           method: "GET",
           headers: new Headers({
             "Content-Type": "application/json",

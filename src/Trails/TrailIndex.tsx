@@ -3,6 +3,7 @@ import { Col, Container, Row } from "reactstrap";
 import TrailCreate from "./TrailCreate";
 import { ITrailGetAll } from "./TrailIndex.interface";
 import TrailTable from "./TrailTable";
+import APIURL from '../helpers/environment';
 
 interface TrailIndexProps {
   token: string | null;
@@ -22,7 +23,7 @@ class TrailIndex extends React.Component<TrailIndexProps, TrailIndexState> {
       alert("No token detected");
       return;
     }
-    fetch("http://localhost:4000/trail/get", {
+    fetch(`${APIURL}/trail/get`, {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",

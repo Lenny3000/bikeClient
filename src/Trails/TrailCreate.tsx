@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Input, Form, FormGroup, Label, Button } from 'reactstrap';
+import APIURL from '../helpers/environment';
 import { ICreateRequestObject } from './TrailCreate.interface';
 
 interface TrailCreateProps {
@@ -30,7 +31,7 @@ class TrailCreate extends React.Component<TrailCreateProps, TrailCreateState> {
             return
         }
         console.log("handleSubmit was called");
-        const url=`http://localhost:4000/trail/create`
+        const url=`${APIURL}/trail/create`
         const requestObject:ICreateRequestObject={
             trailName:this.state.trailName,
             length:this.state.length,

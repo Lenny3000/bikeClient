@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Input, Form, FormGroup, Label, Button } from 'reactstrap';
+import APIURL from '../helpers/environment';
 import { ICreateRequestObject } from './PlaceCreate.interface';
 
 interface PlaceCreateProps {
@@ -31,7 +32,7 @@ class PlaceCreate extends React.Component<PlaceCreateProps, PlaceCreateState> {
             return
         }
         console.log("handleSubmit was called");
-        const url=`http://localhost:4000/place/create`
+        const url=`${APIURL}/place/create`
         const requestObject:ICreateRequestObject={
             placeName:this.state.placeName,
             address:this.state.address,

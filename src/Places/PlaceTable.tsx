@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import { Button, Table } from "reactstrap";
+import APIURL from "../helpers/environment";
 import PlaceEdit from "./PlaceEdit";
 import { IEditRequestObject } from "./PlaceEdit.interface";
 import { IPlaceGetAll } from "./PlaceIndex.interface";
@@ -20,7 +21,7 @@ function PlaceTable(props: PlaceTableProps) {
       return;
     }
     console.log("delete button was clicked");
-    fetch(`http://localhost:4000/place/${place.id}`, {
+    fetch(`${APIURL}/place/${place.id}`, {
       method: "DELETE",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -53,7 +54,7 @@ function PlaceTable(props: PlaceTableProps) {
       longitude: place.longitude,
     };
     console.log("edit button was clicked");
-    fetch(`http://localhost:4000/place/${place.id}`, {
+    fetch(`${APIURL}/place/${place.id}`, {
       method: "PUT",
       body: JSON.stringify(requestObject),
       headers: new Headers({
