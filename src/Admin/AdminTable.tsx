@@ -24,9 +24,10 @@ const AdminTable = (props:adminTableProps) => {
         <Table striped>
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>email</th>
+                    <th>Email</th>
                 </tr>
             </thead>
             <tbody>{userMapper()}</tbody>

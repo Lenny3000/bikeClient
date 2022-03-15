@@ -36,13 +36,14 @@ class Login extends React.Component<LoginProps, LoginState> {
         console.log(data);
         this.props.setToken(data.sessionToken)
         localStorage.setItem("token", data.sessionToken)
+        localStorage.setItem("isAdmin", data.user.isAdmin.toString())
     }
     render() { 
         return ( 
             <div>
                 <Form onSubmit={this.handleSubmit}>
                     <FormGroup>
-                        <Label htmlFor="email">email</Label>
+                        <Label htmlFor="email">Email</Label>
                         <Input
                         type="email"
                         name="email"

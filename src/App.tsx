@@ -20,12 +20,13 @@ function App() {
     setToken("")
     localStorage.clear()
   }
+
   const protectedViews= ()=> token ? 
   <Navigate to="/trails" replace/>: <Auth setToken={setToken}/>
   return (
     <div>
       <HeaderJumboTron/>
-      <Sitebar clearToken={clearToken}/>
+      {token?<Sitebar clearToken={clearToken}/>:null}
       <Routes>
       <Route path='/' element={protectedViews()}/>
 

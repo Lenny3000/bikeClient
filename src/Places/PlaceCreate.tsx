@@ -65,7 +65,7 @@ class PlaceCreate extends React.Component<PlaceCreateProps, PlaceCreateState> {
         <div>
             <Form onSubmit={this.handleSubmit}>
                 <FormGroup>
-                    <Label htmlFor="placeName">placeName</Label>
+                    <Label htmlFor="placeName">Place Name</Label>
                     <Input
                     type="text"
                     name="placeName"
@@ -75,7 +75,7 @@ class PlaceCreate extends React.Component<PlaceCreateProps, PlaceCreateState> {
                 </FormGroup>
                 <FormGroup>
                     <Label
-                    htmlFor="address">address</Label>
+                    htmlFor="address">Address</Label>
                     <Input
                     type="text"
                     name="address"
@@ -86,7 +86,7 @@ class PlaceCreate extends React.Component<PlaceCreateProps, PlaceCreateState> {
                 </FormGroup>
                 <FormGroup>
                     <Label
-                    htmlFor="latitude">latitude</Label>
+                    htmlFor="latitude">Latitude</Label>
                     <Input
                     type="number"
                     name="latitude"
@@ -97,7 +97,7 @@ class PlaceCreate extends React.Component<PlaceCreateProps, PlaceCreateState> {
                 </FormGroup>
                 <FormGroup>
                     <Label
-                    htmlFor="longitude">longitude</Label>
+                    htmlFor="longitude">Longitude</Label>
                     <Input
                     type="number"
                     name="longitude"

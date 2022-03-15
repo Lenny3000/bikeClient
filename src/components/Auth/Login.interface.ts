@@ -4,4 +4,7 @@ export interface ILoginRequestObject {
 }
 export interface ILoginSuccessResponse{
     sessionToken:string
+    user:{
+        isAdmin:boolean
+    }
 }
