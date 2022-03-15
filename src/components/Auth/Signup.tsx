@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import APIURL from "../../helpers/environment";
 import { ISignupRequestObject, ISignupSuccessResponse } from "./Signup.interface";
 
 interface SignupProps {
@@ -21,7 +22,7 @@ class Signup extends React.Component<SignupProps, SignupState> {
 
   handleSubmit=async(e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const url=`http://localhost:4000/user/register`
+    const url=`${APIURL}/user/register`
     const requestObject:ISignupRequestObject={
       firstName:this.state.firstName,
       lastName:this.state.lastName,

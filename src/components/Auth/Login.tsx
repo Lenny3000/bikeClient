@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import APIURL from '../../helpers/environment';
 import { ILoginRequestObject, ILoginSuccessResponse } from './Login.interface';
 
 interface LoginProps {
@@ -19,7 +20,7 @@ class Login extends React.Component<LoginProps, LoginState> {
 
     handleSubmit=async(e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        const url=`http://localhost:4000/user/login`
+        const url=`${APIURL}/user/login`
         const requestObject:ILoginRequestObject={
             email:this.state.email,
             password:this.state.password,
