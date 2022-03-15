@@ -7,6 +7,7 @@ import TrailIndex from './Trails/TrailIndex';
 import Sitebar from './home/navbar';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import HeaderJumboTron from './home/HeaderJumbotron';
+import AdminIndex from './Admin/AdminIndex';
 
 function App() {
   const [token, setToken] = useState<null|string>("");
@@ -30,6 +31,7 @@ function App() {
 
         <Route path='/trails' element={token?<TrailIndex token={token}/>: <Navigate to="/" replace/>}/>
         <Route path='/places' element={token?<PlaceIndex token={token}/>: <Navigate to="/"/>}/>
+        <Route path='/admin' element={token?<AdminIndex token={token}/>: <Navigate to="/"/>}/>
         </Routes>
     </div>
   );
