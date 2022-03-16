@@ -24,7 +24,7 @@ class TrailEdit extends React.Component<TrailEditProps, TrailEditState> {
             trailName: this.props.currentTrailData.trailName,
             length:this.props.currentTrailData.length,
             description:this.props.currentTrailData.description,
-            imageURL:this.props.currentTrailData.description };
+            imageURL:this.props.currentTrailData.imageURL };
     }
     handleClick=()=>{
         const requestObject:IEditRequestObject={
