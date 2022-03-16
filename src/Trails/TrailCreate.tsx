@@ -64,6 +64,7 @@ class TrailCreate extends React.Component<TrailCreateProps, TrailCreateState> {
                     <Input
                     type="text"
                     name="trailName"
+                    placeholder='Trail Name'
                     onChange={(e) => this.setState({ trailName: e.target.value})}
                     value={this.state.trailName}
                     />
@@ -74,6 +75,7 @@ class TrailCreate extends React.Component<TrailCreateProps, TrailCreateState> {
                     <Input
                     type="number"
                     name="length"
+                    placeholder='Length'
                     onChange={(e) => this.setState({ length: +e.target.value})}
                     value={this.state.length}
                     />
@@ -84,6 +86,7 @@ class TrailCreate extends React.Component<TrailCreateProps, TrailCreateState> {
                     <Input
                     type="text"
                     name="description"
+                    placeholder='Description'
                     onChange={(e) => this.setState({ description: e.target.value})}
                     value={this.state.description}
                     />
@@ -94,6 +97,7 @@ class TrailCreate extends React.Component<TrailCreateProps, TrailCreateState> {
                     <Input
                     type="url"
                     name="imageURL"
+                    placeholder='Image URL'
                     onChange={(e) => this.setState({ imageURL: e.target.value})}
                     value={this.state.imageURL}
                     />

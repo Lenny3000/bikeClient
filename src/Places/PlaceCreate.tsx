@@ -69,6 +69,7 @@ class PlaceCreate extends React.Component<PlaceCreateProps, PlaceCreateState> {
                     <Input
                     type="text"
                     name="placeName"
+                    placeholder='Place Name'
                     onChange={(e) => this.setState({ placeName: e.target.value})}
                     value={this.state.placeName}
                     />
@@ -79,6 +80,7 @@ class PlaceCreate extends React.Component<PlaceCreateProps, PlaceCreateState> {
                     <Input
                     type="text"
                     name="address"
+                    placeholder='Address'
                     onChange={(e) => this.setState({
                     address:e.target.value})}
                     value={this.state.address}
@@ -90,6 +92,7 @@ class PlaceCreate extends React.Component<PlaceCreateProps, PlaceCreateState> {
                     <Input
                     type="number"
                     name="latitude"
+                    placeholder='Latitude'
                     onChange={(e) => this.setState({
                     latitude:e.target.value})}
                     value={this.state.latitude}
@@ -101,6 +104,7 @@ class PlaceCreate extends React.Component<PlaceCreateProps, PlaceCreateState> {
                     <Input
                     type="number"
                     name="longitude"
+                    placeholder='Longitude'
                     onChange={(e) => this.setState({
                     longitude:e.target.value})}
                     value={this.state.longitude}
