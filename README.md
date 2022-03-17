@@ -44,3 +44,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+The Bike App was created for people who would like to ride mountain bikes in Indiana.
+It is used to show where to ride mountain bikes in Indiana.
+Includes places, location, trails, lengths of trails, and descriptions.  Images are optional.
